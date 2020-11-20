@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
 
-import com.project.professor.allocation.model.Departament;
+import com.project.professor.allocation.model.Department;
 import com.project.professor.allocation.model.Professor;
 
 @SpringBootTest
@@ -44,14 +44,14 @@ public class ProfessorServiceTest {
 	@Test
 	public void save() {
 		// Arrange
-		Departament departament = new Departament();
-		departament.setId(1L);
+		Department department = new Department();
+		department.setId(1L);
 
 		Professor professor = new Professor();
 		professor.setId(null);
 		professor.setName("Professor 1");
 		professor.setCpf("111.111.111-11");
-		professor.setDepartament(departament);
+		professor.setDepartment(department);
 
 		// Act
 		professor = professorService.save(professor);
@@ -63,14 +63,14 @@ public class ProfessorServiceTest {
 	@Test
 	public void update() {
 		// Arrange
-		Departament departament = new Departament();
-		departament.setId(1L);
+		Department department = new Department();
+		department.setId(1L);
 
 		Professor professor = new Professor();
 		professor.setId(1L);
 		professor.setName("Professor 2");
 		professor.setCpf("222.222.222-22");
-		professor.setDepartament(departament);
+		professor.setDepartment(department);
 
 		// Act
 		professor = professorService.update(professor);

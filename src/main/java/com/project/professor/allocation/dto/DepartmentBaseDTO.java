@@ -1,11 +1,11 @@
 package com.project.professor.allocation.dto;
 
-public class DepartamentBaseDTO {
+public class DepartmentBaseDTO {
 
 	private Long id;
 	private String name;
 
-	public DepartamentBaseDTO() {
+	public DepartmentBaseDTO() {
 		super();
 	}
 

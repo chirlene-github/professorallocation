@@ -7,14 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
 
-import com.project.professor.allocation.model.Departament;
+import com.project.professor.allocation.model.Department;
 
 @SpringBootTest
 @TestPropertySource(locations = "classpath:application.properties")
-public class DepartamentServiceTest {
+public class DepartmentServiceTest {
 
 	@Autowired
-	DepartamentService departamentService;
+	DepartmentService departmentService;
 
 	@Test
 	public void findAll() {
@@ -22,10 +22,10 @@ public class DepartamentServiceTest {
 		String name = null;
 
 		// Act
-		List<Departament> departaments = departamentService.findAll(name);
+		List<Department> departments = departmentService.findAll(name);
 
 		// Print
-		departaments.forEach(System.out::println);
+		departments.forEach(System.out::println);
 	}
 
 	@Test
@@ -34,38 +34,38 @@ public class DepartamentServiceTest {
 		Long id = 1L;
 
 		// Act
-		Departament departament = departamentService.findById(id);
+		Department department = departmentService.findById(id);
 
 		// Print
-		System.out.println(departament);
+		System.out.println(department);
 	}
 
 	@Test
 	public void save() {
 		// Arrange
-		Departament departament = new Departament();
-		departament.setId(null);
-		departament.setName("Departament 1");
+		Department department = new Department();
+		department.setId(null);
+		department.setName("Department 1");
 
 		// Act
-		departament = departamentService.save(departament);
+		department = departmentService.save(department);
 
 		// Print
-		System.out.println(departament);
+		System.out.println(department);
 	}
 
 	@Test
 	public void update() {
 		// Arrange
-		Departament departament = new Departament();
-		departament.setId(1L);
-		departament.setName("Departament 2");
+		Department department = new Department();
+		department.setId(1L);
+		department.setName("Department 2");
 
 		// Act
-		departament = departamentService.update(departament);
+		department = departmentService.update(department);
 
 		// Print
-		System.out.println(departament);
+		System.out.println(department);
 	}
 
 	@Test
@@ -74,12 +74,12 @@ public class DepartamentServiceTest {
 		Long id = 1L;
 
 		// Act
-		departamentService.deleteById(id);
+		departmentService.deleteById(id);
 	}
 
 	@Test
 	public void deleteAll() {
 		// Act
-		departamentService.deleteAll();
+		departmentService.deleteAll();
 	}
 }

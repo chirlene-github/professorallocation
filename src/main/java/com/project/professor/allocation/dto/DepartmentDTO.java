@@ -2,11 +2,11 @@ package com.project.professor.allocation.dto;
 
 import java.util.List;
 
-public class DepartamentDTO extends DepartamentBaseDTO {
+public class DepartmentDTO extends DepartmentBaseDTO {
 
 	private List<ProfessorBaseDTO> professors;
 
-	public DepartamentDTO() {
+	public DepartmentDTO() {
 		super();
 	}
 

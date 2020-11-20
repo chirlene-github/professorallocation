@@ -10,24 +10,24 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.TestPropertySource;
 
-import com.project.professor.allocation.model.Departament;
+import com.project.professor.allocation.model.Department;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = Replace.NONE)
 @Rollback(false)
 @TestPropertySource(locations = "classpath:application.properties")
-public class DepartamentRepositoryTest {
+public class DepartmentRepositoryTest {
 
 	@Autowired
-	private DepartamentRepository departamentRepository;
+	private DepartmentRepository departmentRepository;
 
 	@Test
 	public void findAll() {
 		// Act
-		List<Departament> departaments = departamentRepository.findAll();
+		List<Department> departments = departmentRepository.findAll();
 
 		// Print
-		departaments.stream().forEach(System.out::println);
+		departments.stream().forEach(System.out::println);
 	}
 
 	@Test
@@ -36,50 +36,50 @@ public class DepartamentRepositoryTest {
 		Long id = 1L;
 
 		// Act
-		Departament departament = departamentRepository.findById(id).orElse(null);
+		Department department = departmentRepository.findById(id).orElse(null);
 
 		// Print
-		System.out.println(departament);
+		System.out.println(department);
 	}
 
 	@Test
 	public void findByNameContainingIgnoreCase() {
 		// Arrange
-		String name = "Departament";
+		String name = "Department";
 
 		// Act
-		List<Departament> departaments = departamentRepository.findByNameContainingIgnoreCase(name);
+		List<Department> departments = departmentRepository.findByNameContainingIgnoreCase(name);
 
 		// Print
-		departaments.stream().forEach(System.out::println);
+		departments.stream().forEach(System.out::println);
 	}
 
 	@Test
 	public void save_create() {
 		// Arrange
-		Departament departament = new Departament();
-		departament.setId(null);
-		departament.setName("Departament 1");
+		Department department = new Department();
+		department.setId(null);
+		department.setName("Department 1");
 
 		// Act
-		departament = departamentRepository.save(departament);
+		department = departmentRepository.save(department);
 
 		// Print
-		System.out.println(departament);
+		System.out.println(department);
 	}
 
 	@Test
 	public void save_update() {
 		// Arrange
-		Departament departament = new Departament();
-		departament.setId(1L);
-		departament.setName("Departament 2");
+		Department department = new Department();
+		department.setId(1L);
+		department.setName("Department 2");
 
 		// Act
-		departament = departamentRepository.save(departament);
+		department = departmentRepository.save(department);
 
 		// Print
-		System.out.println(departament);
+		System.out.println(department);
 	}
 
 	@Test
@@ -88,12 +88,12 @@ public class DepartamentRepositoryTest {
 		Long id = 1L;
 
 		// Act
-		departamentRepository.deleteById(id);
+		departmentRepository.deleteById(id);
 	}
 
 	@Test
 	public void deleteAll() {
 		// Act
-		departamentRepository.deleteAllInBatch();
+		departmentRepository.deleteAllInBatch();
 	}
 }

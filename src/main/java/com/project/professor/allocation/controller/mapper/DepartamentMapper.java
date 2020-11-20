@@ -6,32 +6,32 @@ import java.util.stream.Collectors;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 
-import com.project.professor.allocation.dto.DepartamentBaseDTO;
-import com.project.professor.allocation.dto.DepartamentDTO;
-import com.project.professor.allocation.model.Departament;
+import com.project.professor.allocation.dto.DepartmentBaseDTO;
+import com.project.professor.allocation.dto.DepartmentDTO;
+import com.project.professor.allocation.model.Department;
 
 @Component
-public class DepartamentMapper {
+public class DepartmentMapper {
 
 	private ModelMapper modelMapper;
 
-	public DepartamentMapper() {
+	public DepartmentMapper() {
 		this.modelMapper = new ModelMapper();
 	}
 
-	public List<DepartamentBaseDTO> toDepartamentBaseDTO(List<Departament> departaments) {
-		return departaments.stream().map(this::toDepartamentBaseDTO).collect(Collectors.toList());
+	public List<DepartmentBaseDTO> toDepartmentBaseDTO(List<Department> departments) {
+		return departments.stream().map(this::toDepartmentBaseDTO).collect(Collectors.toList());
 	}
 
-	public DepartamentBaseDTO toDepartamentBaseDTO(Departament departament) {
-		return modelMapper.map(departament, DepartamentBaseDTO.class);
+	public DepartmentBaseDTO toDepartmentBaseDTO(Department department) {
+		return modelMapper.map(department, DepartmentBaseDTO.class);
 	}
 
-	public DepartamentDTO toDepartamentDTO(Departament departament) {
-		return modelMapper.map(departament, DepartamentDTO.class);
+	public DepartmentDTO toDepartmentDTO(Department department) {
+		return modelMapper.map(department, DepartmentDTO.class);
 	}
 
-	public Departament toDepartament(DepartamentBaseDTO departamentBaseDTO) {
-		return modelMapper.map(departamentBaseDTO, Departament.class);
+	public Department toDepartment(DepartmentBaseDTO departmentBaseDTO) {
+		return modelMapper.map(departmentBaseDTO, Department.class);
 	}
 }

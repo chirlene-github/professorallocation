@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
-import com.project.professor.allocation.model.Departament;
+import com.project.professor.allocation.model.Department;
 import com.project.professor.allocation.model.Professor;
 import com.project.professor.allocation.repository.ProfessorRepository;
 
@@ -13,12 +13,12 @@ import com.project.professor.allocation.repository.ProfessorRepository;
 public class ProfessorService {
 
 	private ProfessorRepository professorRepository;
-	private DepartamentService departamentService;
+	private DepartmentService departmentService;
 
-	public ProfessorService(ProfessorRepository professorRepository, DepartamentService departamentService) {
+	public ProfessorService(ProfessorRepository professorRepository, DepartmentService departmentService) {
 		super();
 		this.professorRepository = professorRepository;
-		this.departamentService = departamentService;
+		this.departmentService = departmentService;
 	}
 
 	public List<Professor> findAll(String name) {
@@ -68,9 +68,9 @@ public class ProfessorService {
 		try {
 			professor = professorRepository.save(professor);
 			if (professor != null) {
-				Departament departament = professor.getDepartament();
-				departament = departamentService.findById(departament.getId());
-				professor.setDepartament(departament);
+				Department department = professor.getDepartment();
+				department = departmentService.findById(department.getId());
+				professor.setDepartment(department);
 			}
 			return professor;
 		} catch (Exception e) {

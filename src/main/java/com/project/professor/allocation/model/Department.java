@@ -13,8 +13,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "departament")
-public class Departament {
+@Table(name = "department")
+public class Department {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,10 +23,10 @@ public class Departament {
 	@Column(name = "name", nullable = false, unique = true)
 	private String name;
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "departament", cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "department", cascade = CascadeType.ALL)
 	private List<Professor> professors;
 
-	public Departament() {
+	public Department() {
 		super();
 	}
 
@@ -56,6 +56,6 @@ public class Departament {
 
 	@Override
 	public String toString() {
-		return "Departament [id=" + id + ", name=" + name + "]";
+		return "Department [id=" + id + ", name=" + name + "]";
 	}
 }

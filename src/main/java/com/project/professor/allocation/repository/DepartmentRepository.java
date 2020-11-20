@@ -5,10 +5,10 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.project.professor.allocation.model.Departament;
+import com.project.professor.allocation.model.Department;
 
 @Repository
-public interface DepartamentRepository extends JpaRepository<Departament, Long> {
+public interface DepartmentRepository extends JpaRepository<Department, Long> {
 
-	List<Departament> findByNameContainingIgnoreCase(String name);
+	List<Department> findByNameContainingIgnoreCase(String name);
 }

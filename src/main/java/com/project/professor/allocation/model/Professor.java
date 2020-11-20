@@ -28,7 +28,7 @@ public class Professor {
 	private String cpf;
 
 	@ManyToOne(fetch = FetchType.EAGER, optional = false)
-	private Departament departament;
+	private Department department;
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "professor", fetch = FetchType.LAZY)
 	private List<Allocation> allocations;
@@ -61,12 +61,12 @@ public class Professor {
 		this.cpf = cpf;
 	}
 
-	public Departament getDepartament() {
-		return departament;
+	public Department getDepartment() {
+		return department;
 	}
 
-	public void setDepartament(Departament departament) {
-		this.departament = departament;
+	public void setDepartment(Department department) {
+		this.department = department;
 	}
 
 	public List<Allocation> getAllocations() {
@@ -79,6 +79,6 @@ public class Professor {
 
 	@Override
 	public String toString() {
-		return "Professor [id=" + id + ", name=" + name + ", cpf=" + cpf + ", departament=" + departament + "]";
+		return "Professor [id=" + id + ", name=" + name + ", cpf=" + cpf + ", department=" + department + "]";
 	}
 }

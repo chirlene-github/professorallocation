@@ -10,7 +10,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.TestPropertySource;
 
-import com.project.professor.allocation.model.Departament;
+import com.project.professor.allocation.model.Department;
 import com.project.professor.allocation.model.Professor;
 
 @DataJpaTest
@@ -58,14 +58,14 @@ public class ProfessorRepositoryTest {
 	@Test
 	public void save_create() {
 		// Arrange
-		Departament departament = new Departament();
-		departament.setId(1L);
+		Department department = new Department();
+		department.setId(1L);
 
 		Professor professor = new Professor();
 		professor.setId(null);
 		professor.setName("Professor 1");
 		professor.setCpf("111.111.111-11");
-		professor.setDepartament(departament);
+		professor.setDepartment(department);
 
 		// Act
 		professor = professorRepository.save(professor);
@@ -77,14 +77,14 @@ public class ProfessorRepositoryTest {
 	@Test
 	public void save_update() {
 		// Arrange
-		Departament departament = new Departament();
-		departament.setId(1L);
+		Department department = new Department();
+		department.setId(1L);
 
 		Professor professor = new Professor();
 		professor.setId(1L);
 		professor.setName("Professor 2");
 		professor.setCpf("222.222.222-22");
-		professor.setDepartament(departament);
+		professor.setDepartment(department);
 
 		// Act
 		professor = professorRepository.save(professor);

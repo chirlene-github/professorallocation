@@ -6,22 +6,22 @@
 	},
 	"item": [
 		{
-			"name": "departament",
+			"name": "department",
 			"item": [
 				{
-					"name": "getDepartaments",
+					"name": "getDepartments",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{protocol}}://{{ip}}:{{port}}/departament",
+							"raw": "{{protocol}}://{{ip}}:{{port}}/department",
 							"protocol": "{{protocol}}",
 							"host": [
 								"{{ip}}"
 							],
 							"port": "{{port}}",
 							"path": [
-								"departament"
+								"department"
 							],
 							"query": [
 								{
@@ -35,19 +35,19 @@
 					"response": []
 				},
 				{
-					"name": "getDepartament",
+					"name": "getDepartment",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{protocol}}://{{ip}}:{{port}}/departament/:id",
+							"raw": "{{protocol}}://{{ip}}:{{port}}/department/:id",
 							"protocol": "{{protocol}}",
 							"host": [
 								"{{ip}}"
 							],
 							"port": "{{port}}",
 							"path": [
-								"departament",
+								"department",
 								":id"
 							],
 							"variable": [
@@ -61,13 +61,13 @@
 					"response": []
 				},
 				{
-					"name": "createDepartament",
+					"name": "createDepartment",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\"name\": \"Departamento de Física\"\r\n}",
+							"raw": "{\r\n\t\"name\": \"Departmento de Física\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -75,27 +75,27 @@
 							}
 						},
 						"url": {
-							"raw": "{{protocol}}://{{ip}}:{{port}}/departament",
+							"raw": "{{protocol}}://{{ip}}:{{port}}/department",
 							"protocol": "{{protocol}}",
 							"host": [
 								"{{ip}}"
 							],
 							"port": "{{port}}",
 							"path": [
-								"departament"
+								"department"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "updateDepartament",
+					"name": "updateDepartment",
 					"request": {
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Departamento de Português\"\r\n}",
+							"raw": "{\r\n    \"name\": \"Departmento de Português\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -103,14 +103,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{protocol}}://{{ip}}:{{port}}/departament/:id",
+							"raw": "{{protocol}}://{{ip}}:{{port}}/department/:id",
 							"protocol": "{{protocol}}",
 							"host": [
 								"{{ip}}"
 							],
 							"port": "{{port}}",
 							"path": [
-								"departament",
+								"department",
 								":id"
 							],
 							"variable": [
@@ -124,19 +124,19 @@
 					"response": []
 				},
 				{
-					"name": "deleteDepartament",
+					"name": "deleteDepartment",
 					"request": {
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{protocol}}://{{ip}}:{{port}}/departament/:id",
+							"raw": "{{protocol}}://{{ip}}:{{port}}/department/:id",
 							"protocol": "{{protocol}}",
 							"host": [
 								"{{ip}}"
 							],
 							"port": "{{port}}",
 							"path": [
-								"departament",
+								"department",
 								":id"
 							],
 							"variable": [
@@ -150,19 +150,19 @@
 					"response": []
 				},
 				{
-					"name": "deleteDepartaments",
+					"name": "deleteDepartments",
 					"request": {
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{protocol}}://{{ip}}:{{port}}/departament",
+							"raw": "{{protocol}}://{{ip}}:{{port}}/department",
 							"protocol": "{{protocol}}",
 							"host": [
 								"{{ip}}"
 							],
 							"port": "{{port}}",
 							"path": [
-								"departament"
+								"department"
 							]
 						}
 					},
@@ -385,7 +385,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\"name\": \"Professor de Física\",\r\n    \"cpf\": \"111.111.111-11\",\r\n    \"departament\": {\r\n        \"id\": 1\r\n    }\r\n}",
+							"raw": "{\r\n\t\"name\": \"Professor de Física\",\r\n    \"cpf\": \"111.111.111-11\",\r\n    \"department\": {\r\n        \"id\": 1\r\n    }\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -413,7 +413,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\"name\": \"Professor de Física 1\",\r\n    \"cpf\": \"111.111.111-11\",\r\n    \"departament\": {\r\n        \"id\": 1\r\n    }\r\n}",
+							"raw": "{\r\n\t\"name\": \"Professor de Física 1\",\r\n    \"cpf\": \"111.111.111-11\",\r\n    \"department\": {\r\n        \"id\": 1\r\n    }\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"

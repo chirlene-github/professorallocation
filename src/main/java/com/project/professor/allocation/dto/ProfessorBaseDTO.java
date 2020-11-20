@@ -5,7 +5,7 @@ public class ProfessorBaseDTO {
 	private Long id;
 	private String name;
 	private String cpf;
-	private DepartamentBaseDTO departament;
+	private DepartmentBaseDTO department;
 
 	public ProfessorBaseDTO() {
 		super();
@@ -35,11 +35,11 @@ public class ProfessorBaseDTO {
 		this.cpf = cpf;
 	}
 
-	public DepartamentBaseDTO getDepartament() {
-		return departament;
+	public DepartmentBaseDTO getDepartment() {
+		return department;
 	}
 
-	public void setDepartament(DepartamentBaseDTO departament) {
-		this.departament = departament;
+	public void setDepartment(DepartmentBaseDTO department) {
+		this.department = department;
 	}
 }
