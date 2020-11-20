@@ -34,11 +34,12 @@ public class Allocation {
 	@Column(name = "day", nullable = false)
 	private DayOfWeek dayOfWeek;
 
-	@Temporal(TemporalType.DATE)
-	@Column(name = "start", nullable = false, columnDefinition = "TIME")
+	//@Temporal(TemporalType.TIME)
+	@Column(name = "start", nullable = false)
 	private Time startHour;
 
-	@Column(name = "end", nullable = false, columnDefinition = "TIME")
+	//@Temporal(TemporalType.TIME)
+	@Column(name = "end", nullable = false)
 	private Time endHour;
 
 	@ManyToOne(optional = false)
