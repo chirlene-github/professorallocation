@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 import com.project.professor.allocation.dto.AllocationBaseDTO;
 import com.project.professor.allocation.dto.AllocationDTO;
-import com.project.professor.allocation.model.Allocation;
+import com.project.professor.allocation.entity.Allocation;
 
 @Component
 public class AllocationMapper {

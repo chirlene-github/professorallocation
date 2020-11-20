@@ -1,4 +1,4 @@
-package com.project.professor.allocation.model;
+package com.project.professor.allocation.entity;
 
 import java.util.List;
 
@@ -9,24 +9,31 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "course")
-public class Course {
+@Table(name = "professor")
+public class Professor {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name = "name", nullable = false, unique = true)
+	@Column(name = "name", nullable = false)
 	private String name;
 
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "course", fetch = FetchType.LAZY)
+	@Column(name = "cpf", nullable = false, unique = true)
+	private String cpf;
+
+	@ManyToOne(fetch = FetchType.EAGER, optional = false)
+	private Department department;
+
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "professor", fetch = FetchType.LAZY)
 	private List<Allocation> allocations;
 
-	public Course() {
+	public Professor() {
 		super();
 	}
 
@@ -46,6 +53,22 @@ public class Course {
 		this.name = name;
 	}
 
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+	public Department getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
+
 	public List<Allocation> getAllocations() {
 		return allocations;
 	}
@@ -56,6 +79,6 @@ public class Course {
 
 	@Override
 	public String toString() {
-		return "Course [id=" + id + ", name=" + name + "]";
+		return "Professor [id=" + id + ", name=" + name + ", cpf=" + cpf + ", department=" + department + "]";
 	}
 }

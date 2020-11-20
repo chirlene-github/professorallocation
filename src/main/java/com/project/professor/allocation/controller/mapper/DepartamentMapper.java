@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 import com.project.professor.allocation.dto.DepartmentBaseDTO;
 import com.project.professor.allocation.dto.DepartmentDTO;
-import com.project.professor.allocation.model.Department;
+import com.project.professor.allocation.entity.Department;
 
 @Component
 public class DepartmentMapper {

@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
-import com.project.professor.allocation.model.Department;
-import com.project.professor.allocation.model.Professor;
+import com.project.professor.allocation.entity.Department;
+import com.project.professor.allocation.entity.Professor;
 import com.project.professor.allocation.repository.ProfessorRepository;
 
 @Service

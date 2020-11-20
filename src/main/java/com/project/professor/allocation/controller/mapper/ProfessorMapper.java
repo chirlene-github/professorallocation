@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 import com.project.professor.allocation.dto.ProfessorBaseDTO;
 import com.project.professor.allocation.dto.ProfessorDTO;
-import com.project.professor.allocation.model.Professor;
+import com.project.professor.allocation.entity.Professor;
 
 @Component
 public class ProfessorMapper {

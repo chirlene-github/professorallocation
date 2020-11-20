@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
 
-import com.project.professor.allocation.model.Department;
+import com.project.professor.allocation.entity.Department;
 
 @SpringBootTest
 @TestPropertySource(locations = "classpath:application.properties")

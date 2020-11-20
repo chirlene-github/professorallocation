@@ -10,7 +10,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.TestPropertySource;
 
-import com.project.professor.allocation.model.Department;
+import com.project.professor.allocation.entity.Department;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = Replace.NONE)

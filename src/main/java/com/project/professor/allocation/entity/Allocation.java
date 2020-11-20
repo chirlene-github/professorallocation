@@ -1,4 +1,4 @@
-package com.project.professor.allocation.model;
+package com.project.professor.allocation.entity;
 
 import java.sql.Time;
 import java.time.DayOfWeek;

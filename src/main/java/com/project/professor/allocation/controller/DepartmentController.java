@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.project.professor.allocation.controller.mapper.DepartmentMapper;
 import com.project.professor.allocation.dto.DepartmentBaseDTO;
 import com.project.professor.allocation.dto.DepartmentDTO;
-import com.project.professor.allocation.model.Department;
+import com.project.professor.allocation.entity.Department;
 import com.project.professor.allocation.service.DepartmentService;
 
 import io.swagger.annotations.ApiOperation;

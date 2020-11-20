@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 import com.project.professor.allocation.dto.CourseBaseDTO;
 import com.project.professor.allocation.dto.CourseDTO;
-import com.project.professor.allocation.model.Course;
+import com.project.professor.allocation.entity.Course;
 
 @Component
 public class CourseMapper {
