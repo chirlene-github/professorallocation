@@ -9,10 +9,6 @@ import java.util.List;
 
 import javax.persistence.*;
 
-@AttributeOverrides({
-		@AttributeOverride(name = "departmentId", column = @Column(name = "department_id")),
-})
-
 @Entity
 @Table(name = "professor")
 
@@ -25,8 +21,6 @@ public class Professor {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	private Long departmentId;
-
 	@Column(name = "name", nullable = false)
 	private String name;
 
@@ -34,7 +28,7 @@ public class Professor {
 	private String cpf;
 
 	@ManyToOne(optional = false)
-	@JoinColumn(name = "department_id", nullable = false, insertable = false, updatable = false)
+	@JoinColumn(name = "department_id", nullable = false)
 	private Department department;
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "professor")

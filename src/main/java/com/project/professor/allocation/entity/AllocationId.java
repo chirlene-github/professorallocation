@@ -10,6 +10,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+
 public class AllocationId implements Serializable {
 
     //@Column(name = "professor_id")
