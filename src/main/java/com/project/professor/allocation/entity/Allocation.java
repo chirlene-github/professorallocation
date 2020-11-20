@@ -7,16 +7,7 @@ import lombok.NoArgsConstructor;
 import java.sql.Time;
 import java.time.DayOfWeek;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "allocation")
@@ -33,9 +24,11 @@ public class Allocation {
 	@Column(name = "day", nullable = false)
 	private DayOfWeek dayOfWeek;
 
+	@Temporal(TemporalType.TIME)
 	@Column(name = "start", nullable = false, columnDefinition = "TIME")
 	private Time startHour;
 
+	@Temporal(TemporalType.TIME)
 	@Column(name = "end", nullable = false, columnDefinition = "TIME")
 	private Time endHour;
 
