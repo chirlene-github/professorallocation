@@ -1,5 +1,10 @@
 package com.project.professor.allocation.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -14,48 +19,19 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "department")
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 public class Department {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name = "name", nullable = false, unique = true)
+	@Column(name = "name", unique = true, nullable = false)
 	private String name;
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "department", cascade = CascadeType.ALL)
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "department")
+    @ToString.Exclude
 	private List<Professor> professors;
-
-	public Department() {
-		super();
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public List<Professor> getProfessors() {
-		return professors;
-	}
-
-	public void setProfessors(List<Professor> professors) {
-		this.professors = professors;
-	}
-
-	@Override
-	public String toString() {
-		return "Department [id=" + id + ", name=" + name + "]";
-	}
 }

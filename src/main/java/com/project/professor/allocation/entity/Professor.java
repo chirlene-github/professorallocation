@@ -1,5 +1,10 @@
 package com.project.professor.allocation.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -15,6 +20,9 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "professor")
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 public class Professor {
 
 	@Id
@@ -24,61 +32,13 @@ public class Professor {
 	@Column(name = "name", nullable = false)
 	private String name;
 
-	@Column(name = "cpf", nullable = false, unique = true)
+	@Column(name = "cpf", unique = true, nullable = false)
 	private String cpf;
 
-	@ManyToOne(fetch = FetchType.EAGER, optional = false)
+	@ManyToOne(optional = false)
 	private Department department;
 
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "professor", fetch = FetchType.LAZY)
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "professor")
+	@ToString.Exclude
 	private List<Allocation> allocations;
-
-	public Professor() {
-		super();
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getCpf() {
-		return cpf;
-	}
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-
-	public Department getDepartment() {
-		return department;
-	}
-
-	public void setDepartment(Department department) {
-		this.department = department;
-	}
-
-	public List<Allocation> getAllocations() {
-		return allocations;
-	}
-
-	public void setAllocations(List<Allocation> allocations) {
-		this.allocations = allocations;
-	}
-
-	@Override
-	public String toString() {
-		return "Professor [id=" + id + ", name=" + name + ", cpf=" + cpf + ", department=" + department + "]";
-	}
 }
