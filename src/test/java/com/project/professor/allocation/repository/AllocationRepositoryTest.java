@@ -4,6 +4,7 @@ import java.sql.Time;
 import java.time.DayOfWeek;
 import java.util.List;
 
+import com.project.professor.allocation.entity.AllocationId;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
@@ -26,112 +27,19 @@ public class AllocationRepositoryTest {
 	private AllocationRepository allocationRepository;
 
 	@Test
-	public void findAll() {
-		// Act
-		List<Allocation> allocations = allocationRepository.findAll();
-
-		// Print
-		allocations.stream().forEach(System.out::println);
-	}
-
-	@Test
 	public void findById() {
 		// Arrange
 		Long id = 1L;
 
 		// Act
-		Allocation allocation = allocationRepository.findById(id).orElse(null);
+		Allocation allocation = null;// = allocationRepository.findById(id).orElse(null);
 
 		// Print
-		System.out.println(allocation);
+		System.out.println("\n\n\n");
+		System.out.println(allocationRepository.findAll());
+		System.out.println("\n\n\n");
+		System.out.println(allocationRepository.findById(new AllocationId(2, 1)).orElse(null));
+		System.out.println("\n\n\n");
 	}
 
-	@Test
-	public void findByProfessor() {
-		// Arrange
-		Professor professor = new Professor();
-		professor.setId(1L);
-
-		// Act
-		List<Allocation> allocations = allocationRepository.findByProfessor(professor);
-
-		// Print
-		allocations.stream().forEach(System.out::println);
-	}
-
-	@Test
-	public void findByCourse() {
-		// Arrange
-		Course course = new Course();
-		course.setId(1L);
-
-		// Act
-		List<Allocation> allocations = allocationRepository.findByCourse(course);
-
-		// Print
-		allocations.stream().forEach(System.out::println);
-	}
-
-	@Test
-	public void save_create() {
-		// Arrange
-		Professor professor = new Professor();
-		professor.setId(1L);
-
-		Course course = new Course();
-		course.setId(1L);
-
-		Allocation allocation = new Allocation();
-		allocation.setId(null);
-		allocation.setDayOfWeek(DayOfWeek.SUNDAY);
-		allocation.setStartHour(Time.valueOf("17:00:00"));
-		allocation.setEndHour(Time.valueOf("18:00:00"));
-		allocation.setProfessor(professor);
-		allocation.setCourse(course);
-
-		// Act
-		allocation = allocationRepository.save(allocation);
-
-		// Print
-		System.out.println(allocation);
-	}
-
-	@Test
-	public void save_update() {
-		// Arrange
-		Professor professor = new Professor();
-		professor.setId(1L);
-
-		Course course = new Course();
-		course.setId(1L);
-
-		Allocation allocation = new Allocation();
-		allocation.setId(1L);
-		allocation.setDayOfWeek(DayOfWeek.MONDAY);
-		allocation.setStartHour(Time.valueOf("19:00:00"));
-		allocation.setEndHour(Time.valueOf("20:00:00"));
-		allocation.setProfessor(professor);
-		allocation.setCourse(course);
-
-		// Act
-		allocation = allocationRepository.save(allocation);
-
-		// Print
-		System.out.println(allocation);
-	}
-
-	@Test
-	public void deleteById() {
-		// Arrange
-		Long id = 1L;
-
-		// Act
-		allocationRepository.deleteById(id);
-	}
-
-	@Test
-	public void deleteAll() {
-		// Act
-		allocationRepository.deleteAllInBatch();
-	}
 }

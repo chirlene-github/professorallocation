@@ -7,28 +7,27 @@ import lombok.NoArgsConstructor;
 import java.sql.Time;
 import java.time.DayOfWeek;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "allocation")
+@IdClass(AllocationId.class)
+
+@AttributeOverrides({
+		@AttributeOverride(name = "professorId", column = @Column(name = "professor_id")),
+		@AttributeOverride(name = "courseId", column = @Column(name = "course_id"))
+})
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 public class Allocation {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private long professorId;
+
+	@Id
+	private long courseId;
 
 	@Enumerated(EnumType.STRING)
 	@Column(name = "day", nullable = false)
@@ -43,8 +42,10 @@ public class Allocation {
 	private Time endHour;
 
 	@ManyToOne(optional = false)
+	@JoinColumn(name = "professor_id", nullable = false, insertable = false, updatable = false)
 	private Professor professor;
 
 	@ManyToOne(optional = false)
+	@JoinColumn(name = "course_id", nullable = false, insertable = false, updatable = false)
 	private Course course;
 }
