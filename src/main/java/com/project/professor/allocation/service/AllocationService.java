@@ -13,9 +13,9 @@ import java.util.List;
 @Service
 public class AllocationService {
 
-    private AllocationRepository allocationRepository;
-    private ProfessorService professorService;
-    private CourseService courseService;
+    private final AllocationRepository allocationRepository;
+    private final ProfessorService professorService;
+    private final CourseService courseService;
 
     public AllocationService(AllocationRepository allocationRepository, ProfessorService professorService,
                              CourseService courseService) {
