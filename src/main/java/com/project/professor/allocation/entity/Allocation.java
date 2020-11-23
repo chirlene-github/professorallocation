@@ -4,48 +4,38 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.sql.Time;
-import java.time.DayOfWeek;
-
 import javax.persistence.*;
+import java.time.DayOfWeek;
+import java.util.Date;
 
 @Entity
 @Table(name = "allocation")
 @IdClass(AllocationId.class)
-
-@AttributeOverrides({
-		@AttributeOverride(name = "professorId", column = @Column(name = "professor_id")),
-		@AttributeOverride(name = "courseId", column = @Column(name = "course_id"))
-})
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 public class Allocation {
 
-	@Id
-	private long professorId;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "day", nullable = false)
+    private DayOfWeek dayOfWeek;
 
-	@Id
-	private long courseId;
+    @Temporal(TemporalType.TIME)
+    @Column(name = "start", nullable = false)
+    private Date startHour;
 
-	@Enumerated(EnumType.STRING)
-	@Column(name = "day", nullable = false)
-	private DayOfWeek dayOfWeek;
+    @Temporal(TemporalType.TIME)
+    @Column(name = "end", nullable = false)
+    private Date endHour;
 
-	//@Temporal(TemporalType.TIME)
-	@Column(name = "start", nullable = false)
-	private Time startHour;
+    @Id
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "professor_id", nullable = false)
+    private Professor professor;
 
-	//@Temporal(TemporalType.TIME)
-	@Column(name = "end", nullable = false)
-	private Time endHour;
-
-	@ManyToOne(optional = false)
-	@JoinColumn(name = "professor_id", nullable = false, insertable = false, updatable = false)
-	private Professor professor;
-
-	@ManyToOne(optional = false)
-	@JoinColumn(name = "course_id", nullable = false, insertable = false, updatable = false)
-	private Course course;
+    @Id
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "course_id", nullable = false)
+    private Course course;
 }

@@ -5,9 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import java.util.List;
-
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "professor")
@@ -17,21 +16,21 @@ import javax.persistence.*;
 @Data
 public class Professor {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	@Column(name = "name", nullable = false)
-	private String name;
+    @Column(name = "name", nullable = false)
+    private String name;
 
-	@Column(name = "cpf", unique = true, nullable = false)
-	private String cpf;
+    @Column(name = "cpf", unique = true, nullable = false)
+    private String cpf;
 
-	@ManyToOne(optional = false)
-	@JoinColumn(name = "department_id", nullable = false)
-	private Department department;
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "department_id", nullable = false)
+    private Department department;
 
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "professor")
-	@ToString.Exclude
-	private List<Allocation> allocations;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "professor")
+    @ToString.Exclude
+    private List<Allocation> allocations;
 }

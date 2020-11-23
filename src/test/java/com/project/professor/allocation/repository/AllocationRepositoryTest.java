@@ -38,7 +38,7 @@ public class AllocationRepositoryTest {
 		System.out.println("\n\n\n");
 		System.out.println(allocationRepository.findAll());
 		System.out.println("\n\n\n");
-		System.out.println(allocationRepository.findById(new AllocationId(2, 1)).orElse(null));
+		System.out.println(allocationRepository.findById(new AllocationId(1L, 1L)).orElse(null));
 		System.out.println("\n\n\n");
 	}
 
