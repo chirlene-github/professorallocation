@@ -9,11 +9,14 @@ import java.util.Date;
 
 @Entity
 @Table(name = "allocation")
-@IdClass(AllocationId.class)
 
 @NoArgsConstructor
 @Data
 public class Allocation {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "day", nullable = false)
@@ -27,12 +30,10 @@ public class Allocation {
     @Column(name = "end", nullable = false)
     private Date endHour;
 
-    @Id
     @ManyToOne(optional = false)
     @JoinColumn(name = "professor_id", nullable = false)
     private Professor professor;
 
-    @Id
     @ManyToOne(optional = false)
     @JoinColumn(name = "course_id", nullable = false)
     private Course course;

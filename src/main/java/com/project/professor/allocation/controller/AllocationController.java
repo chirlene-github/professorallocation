@@ -5,7 +5,6 @@ import com.project.professor.allocation.dto.AllocationCompleteDTO;
 import com.project.professor.allocation.dto.AllocationCreationDTO;
 import com.project.professor.allocation.dto.AllocationSimpleDTO;
 import com.project.professor.allocation.entity.Allocation;
-import com.project.professor.allocation.entity.AllocationId;
 import com.project.professor.allocation.service.AllocationService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -47,11 +46,10 @@ public class AllocationController {
             @ApiResponse(code = 400, message = "Bad Request"),
             @ApiResponse(code = 404, message = "Not Found")
     })
-    @GetMapping(value = "/professor/{professor_id}/course/{course_id}")
+    @GetMapping(value = "/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<AllocationCompleteDTO> getAllocation(@PathVariable(value = "professor_id") Long professorId,
-                                                               @PathVariable(value = "professor_id") Long courseId) {
-        Allocation allocation = allocationService.findById(new AllocationId(professorId, courseId));
+    public ResponseEntity<AllocationCompleteDTO> getAllocation(@PathVariable(value = "id") Long id) {
+        Allocation allocation = allocationService.findById(id);
         if (allocation == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
@@ -107,13 +105,11 @@ public class AllocationController {
             @ApiResponse(code = 400, message = "Bad Request"),
             @ApiResponse(code = 404, message = "Not Found")
     })
-    @PutMapping(value = "/professor/{professor_id}/course/{course_id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<AllocationSimpleDTO> updateAllocation(@PathVariable(value = "professor_id") Long professorId,
-                                                                @PathVariable(value = "professor_id") Long courseId,
+    public ResponseEntity<AllocationSimpleDTO> updateAllocation(@PathVariable(value = "id") Long id,
                                                                 @RequestBody AllocationCreationDTO allocationDTO) {
-        allocationDTO.setProfessorId(professorId);
-        allocationDTO.setCourseId(courseId);
+        allocationDTO.setId(id);
         Allocation allocation = allocationService.update(mapper.toAllocation(allocationDTO));
         if (allocation == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -127,11 +123,10 @@ public class AllocationController {
             @ApiResponse(code = 204, message = "No Content"),
             @ApiResponse(code = 400, message = "Bad Request")
     })
-    @DeleteMapping(value = "/professor/{professor_id}/course/{course_id}")
+    @DeleteMapping(value = "/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public ResponseEntity<Void> deleteAllocation(@PathVariable(value = "professor_id") Long professorId,
-                                                 @PathVariable(value = "course_id") Long courseId) {
-        allocationService.deleteById(new AllocationId(professorId, courseId));
+    public ResponseEntity<Void> deleteAllocation(@PathVariable(value = "id") Long id) {
+        allocationService.deleteById(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 

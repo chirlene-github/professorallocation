@@ -1,7 +1,6 @@
 package com.project.professor.allocation.service;
 
 import com.project.professor.allocation.entity.Allocation;
-import com.project.professor.allocation.entity.AllocationId;
 import com.project.professor.allocation.entity.Course;
 import com.project.professor.allocation.entity.Professor;
 import com.project.professor.allocation.repository.AllocationRepository;
@@ -41,7 +40,7 @@ public class AllocationService {
         return allocationRepository.findByCourse(course);
     }
 
-    public Allocation findById(AllocationId id) {
+    public Allocation findById(Long id) {
         return allocationRepository.findById(id).orElse(null);
     }
 
@@ -50,21 +49,19 @@ public class AllocationService {
     }
 
     public Allocation update(Allocation allocation) {
-        Professor professor = allocation.getProfessor();
-        Course course = allocation.getCourse();
-        if (professor == null || professor.getId() == null || course == null || course.getId() == null) {
+        Long id = allocation.getId();
+        if (allocation.getId() == null) {
             return null;
         }
 
-        AllocationId id = new AllocationId(professor.getId(), course.getId());
-        if (allocationRepository.existsById(id)) {
+        if (!allocationRepository.existsById(id)) {
             return null;
         }
 
         return internalSave(allocation);
     }
 
-    public void deleteById(AllocationId id) {
+    public void deleteById(Long id) {
         try {
             allocationRepository.deleteById(id);
         } catch (EmptyResultDataAccessException e) {

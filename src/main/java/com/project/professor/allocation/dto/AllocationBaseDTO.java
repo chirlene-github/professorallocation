@@ -11,6 +11,8 @@ import java.util.Date;
 @Data
 public class AllocationBaseDTO {
 
+    private Long id;
+
     private DayOfWeek dayOfWeek;
 
     @JsonFormat(pattern = "HH:mm:ss")
