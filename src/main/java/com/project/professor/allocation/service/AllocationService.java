@@ -56,7 +56,7 @@ public class AllocationService {
             return null;
         }
 
-        AllocationId id = new AllocationId(professor, course);
+        AllocationId id = new AllocationId(professor.getId(), course.getId());
         if (allocationRepository.existsById(id)) {
             return null;
         }

@@ -107,11 +107,13 @@ public class AllocationController {
             @ApiResponse(code = 400, message = "Bad Request"),
             @ApiResponse(code = 404, message = "Not Found")
     })
-    @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/professor/{professor_id}/course/{course_id}", consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<AllocationSimpleDTO> updateAllocation(@PathVariable(value = "id") Long id,
+    public ResponseEntity<AllocationSimpleDTO> updateAllocation(@PathVariable(value = "professor_id") Long professorId,
+                                                                @PathVariable(value = "professor_id") Long courseId,
                                                                 @RequestBody AllocationCreationDTO allocationDTO) {
-        allocationDTO.setId(id);
+        allocationDTO.setProfessorId(professorId);
+        allocationDTO.setCourseId(courseId);
         Allocation allocation = allocationService.update(mapper.toAllocation(allocationDTO));
         if (allocation == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);

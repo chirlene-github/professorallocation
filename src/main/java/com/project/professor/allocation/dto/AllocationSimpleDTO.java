@@ -9,6 +9,6 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(callSuper = true)
 public class AllocationSimpleDTO extends AllocationBaseDTO {
 
-    private ProfessorBaseDTO professor;
-    private CourseBaseDTO course;
+    private ProfessorSimpleDTO professor;
+    private CourseSimpleDTO course;
 }
