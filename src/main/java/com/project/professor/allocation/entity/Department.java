@@ -2,8 +2,10 @@ package com.project.professor.allocation.entity;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "department")
@@ -18,4 +20,8 @@ public class Department {
 
     @Column(name = "name", unique = true, nullable = false)
     private String name;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "department")
+    @ToString.Exclude
+    private List<Professor> professors;
 }
